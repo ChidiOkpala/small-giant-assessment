@@ -10,7 +10,7 @@ const JobApplication = ({ params }: { params: { jobId: string } }) => {
   const selectedJobData = getJobData(jobId)!;
   
   return (
-    <div className="flex flex-col gap-5 md:p-24 md:py-14 w-full">
+    <div className="flex flex-col gap-5 md:px-24 w-full">
       <JobHeader
         goBackText="Back To Job Details"
         title={selectedJobData?.title}

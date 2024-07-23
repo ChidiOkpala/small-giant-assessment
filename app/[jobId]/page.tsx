@@ -17,7 +17,7 @@ const VacancyDetails = ({ params }: { params: { jobId: string } }) => {
   };
 
   return (
-    <div className="flex flex-col gap-5 md:p-24 md:py-14">
+    <div className="flex flex-col gap-5 md:px-24">
       <JobHeader
         goBackText="Back To Job Listing"
         title={selectedJobData?.title}

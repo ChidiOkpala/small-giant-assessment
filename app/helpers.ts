@@ -23,3 +23,43 @@ export const getSpecLabel = (label: string): string => {
       return label;
   }
 };
+
+export const getFilterOptions = () => {
+  const filterGroupLabels = Object.keys(vacancies[0].specs).filter(spec => !spec.startsWith("_"));
+
+  return filterGroupLabels.map(label => {
+    const options: Array<string | number> = [];
+
+    vacancies.forEach(vacancy => Object.entries(vacancy.specs).forEach(([key, value]) => {
+      if (key === label && value) {
+        options.push(value)
+      }
+    }));
+  
+    return {
+      label,
+      options: [...new Set(options)]
+    }
+  });
+};
+
+export const getFilterInitState = (): Record<string, Array<string | number>> => {
+  let filterState = {};
+
+  getFilterOptions().forEach(opt => {
+    filterState = { ...filterState, [opt.label]: [] }
+  });
+
+  return filterState;
+};
+
+export const sortOptions = [
+  {
+    label: "Oldest",
+    value: "ascending"
+  },
+  {
+    label: "Newest",
+    value: "descending"
+  }
+];

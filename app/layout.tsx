@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
+import AppProvider from "./providers/useAppProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col items-center justify-between py-6 md:py-12 px-6 md:px-12">{children}</body>
+      <AppProvider>
+        <body className="flex min-h-screen flex-col items-center justify-between py-6 md:py-12 px-6 md:px-12">{children}</body>
+      </AppProvider>
     </html>
   );
 }
