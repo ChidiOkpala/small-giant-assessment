@@ -1,6 +1,8 @@
-import vacancies from "@/app/constants/vacancy-list.json";
 import { useMemo } from "react";
-import { getSpecLabel } from "../helpers";
+
+import vacancies from "@/app/constants/vacancy-list.json";
+
+import { getSpecLabel } from "@/app/helpers";
 
 const FilterCard = () => {
   const structuredFilterList = useMemo(() => {
@@ -47,7 +49,6 @@ const FilterCard = () => {
             )
         })}
       </div>
-
     </div>
   );
 };

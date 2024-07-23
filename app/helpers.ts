@@ -8,6 +8,8 @@ export const getSpecLabel = (label: string): string => {
       return "Function Group"
     case "hoursPerWeek":
       return "Hours Per Week";
+    case "companyType":
+      return "Company Type"
   
     default:
       return label;

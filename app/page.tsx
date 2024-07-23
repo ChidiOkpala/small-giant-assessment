@@ -25,19 +25,12 @@ export default function Home() {
               key={vacancy.jobId}
               title={vacancy.title}
               description={vacancy.intro}
-              specs={{
-                sector: vacancy.specs.sector,
-                hoursPerWeek: vacancy.specs.hoursPerWeek,
-                industry: vacancy.specs.industry,
-                experienceLevel: vacancy.specs.experienceLevel,
-                region: vacancy.specs.region,
-                city: vacancy.specs.city
-              }}
-              onSeeMore={() => {}}
+              jobId={vacancy.jobId}
+              specs={vacancy.specs}
             />
           ))}
         </div>
       </div>
     </main>
   );
-}
+};
