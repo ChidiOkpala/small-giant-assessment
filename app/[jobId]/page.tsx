@@ -1,28 +1,23 @@
 "use client"
 
-import Error from "next/error";
 import { useRouter } from "next/navigation";
 
-import vacancies from "@/app/constants/vacancy-list.json";
 import JobHeader from "@/app/components/JobHeader";
+import { getJobData } from "../helpers";
 
 const VacancyDetails = ({ params }: { params: { jobId: string } }) => {
   const router = useRouter();
 
   const { jobId = "" } = params;
 
-  const selectedJobData = vacancies.find(vacancy => vacancy.jobId === jobId);
+  const selectedJobData = getJobData(jobId)!;
 
   const handleApplyClick = () => {
     router.push(`/${selectedJobData?.jobId}/application`);
   };
 
-  if (!selectedJobData) {
-    return <Error statusCode={404} />
-  };
-
   return (
-    <div className="flex flex-col gap-5 p-12 md:p-24 md:py-14">
+    <div className="flex flex-col gap-5 md:p-24 md:py-14">
       <JobHeader
         goBackText="Back To Job Listing"
         title={selectedJobData?.title}
@@ -36,7 +31,7 @@ const VacancyDetails = ({ params }: { params: { jobId: string } }) => {
         <span className="text-base font-semibold border-b border-b-gray-600 w-full block pb-2">Recruiter</span>
         <span>{selectedJobData.recruiter}</span>
       </div>
-      <button className="w-40 h-12 border border-black" onClick={handleApplyClick}>Apply</button>
+      <button className="w-40 h-12 border border-black mt-5" onClick={handleApplyClick}>Apply</button>
     </div>
   );
 };

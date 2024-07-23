@@ -10,7 +10,7 @@ export default function Home() {
   const [showMobileFilter, setShowMobileFilter] = useState<boolean>(false);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between py-6 md:py-12 px-6 md:px-12">
+    <main>
       <div className="w-full flex justify-between md:justify-center items-center mb-5">
         <h1 className="text-xl font-bold text-left md:text-center">Job Vacancy Listing</h1>
         <button className="py-1 px-4 bg-gray-400 md:hidden" onClick={() => setShowMobileFilter(true)}>Filter</button>
