@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { AppContext, FilterState } from "../providers/useAppProvider";
+import { AppContext, FilterState } from "../providers/AppProvider";
 
 const useFilter = () => {
   const { filterState, setFilterState } = useContext(AppContext)!;

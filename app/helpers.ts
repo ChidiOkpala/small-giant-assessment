@@ -56,10 +56,10 @@ export const getFilterInitState = (): Record<string, Array<string | number>> => 
 export const sortOptions = [
   {
     label: "Oldest",
-    value: "ascending"
+    value: "oldest"
   },
   {
     label: "Newest",
-    value: "descending"
+    value: "newest"
   }
 ];

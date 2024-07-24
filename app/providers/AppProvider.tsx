@@ -8,7 +8,7 @@ type AppContextProps = {
   setFilterState: (filterState: FilterState) => void;
 }
 
-export type SortDateOrder = "ascending" | "descending";
+export type SortDateOrder = "oldest" | "newest";
 
 export type FilterState = {
   search: string;

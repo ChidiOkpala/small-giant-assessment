@@ -7,7 +7,7 @@ import JobCard from "@/app/components/JobCard";
 import vacancies from "@/app/constants/vacancy-list.json";
 import useFilter from "@/app/hooks/useFilter";
 
-export default function Home() {
+const JobListingPage = () => {
   const { filterState } = useFilter();
 
   const [showMobileFilter, setShowMobileFilter] = useState<boolean>(false);
@@ -15,6 +15,7 @@ export default function Home() {
   const vacancyList = useMemo(() => {
     let filteredVacancies = vacancies;
 
+    /*Filtering of the vacancy bases on user filter selection */
     filteredVacancies = filteredVacancies.filter(vacancy => {
       let shouldShowVacancy = true;
 
@@ -29,18 +30,16 @@ export default function Home() {
       return shouldShowVacancy;
     });
 
+    /*Filtering of the vacancy based on user search*/
     filteredVacancies = filteredVacancies.filter(vacancy => vacancy.title.toLowerCase().includes(filterState?.search?.toLowerCase() || ""));
 
-    if (filterState?.dateOrder === "ascending") {
-      filteredVacancies = filteredVacancies.sort((a, b) => {
-        return new Date(a.date.timestamp[0]).getTime() - new Date(b.date.timestamp[0]).getTime();
-      })
+    /*Sorting of the vacancy based on the selected order*/
+    if (filterState?.dateOrder === "oldest") {
+      filteredVacancies = filteredVacancies.sort((a, b) => a.date.timestamp - b.date.timestamp);
     };
 
-    if (filterState?.dateOrder === "descending") {
-      filteredVacancies = filteredVacancies.sort((a, b) => {
-        return new Date(b.date.timestamp[0]).getTime() - new Date(a.date.timestamp[0]).getTime();
-      })
+    if (filterState?.dateOrder === "newest") {
+      filteredVacancies = filteredVacancies.sort((a, b) => b.date.timestamp - a.date.timestamp)
     };
 
     return filteredVacancies;
@@ -81,3 +80,5 @@ export default function Home() {
     </main>
   );
 };
+
+export default JobListingPage;
