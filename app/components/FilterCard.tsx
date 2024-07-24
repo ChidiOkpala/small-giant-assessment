@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 
 import { getFilterOptions, getSpecLabel, sortOptions } from "@/app/helpers";
 import useFilter from "@/app/hooks/useFilter";
-import { SortDateOrder } from "@/app/providers/useAppProvider";
+import { SortDateOrder } from "@/app/providers/AppProvider";
 
 type FilterCardProps = {
   onClose: () => void;
