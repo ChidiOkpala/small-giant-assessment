@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import AppProvider from "./providers/AppProvider";
+import AppHeader from "./layouts/AppHeader";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AppProvider>
-        <body className="flex min-h-screen flex-col items-center justify-between py-6 md:py-12 px-6 md:px-12">{children}</body>
+        <body>
+          <AppHeader />
+          <div className="flex min-h-screen flex-col items-center justify-between py-6 px-4 md:px-16 bg-[#EDDCF5]">
+            {children}
+          </div>
+        </body>
       </AppProvider>
     </html>
   );

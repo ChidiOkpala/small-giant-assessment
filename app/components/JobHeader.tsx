@@ -1,30 +1,24 @@
-import { useRouter } from "next/navigation";
-
-import JobSpec from "./JobSpec";
+import { getDaysDifference, getInitials } from "../helpers";
 
 type JobHeaderProps = {
   title: string;
-  goBackText: string;
-  specs: Record<string, string | number>;
+  industry: string;
+  timestamp: number;
 }
 
-const JobHeader = ({ goBackText, title, specs }: JobHeaderProps) => {
-  const router = useRouter();
-
-  const handleGoBack = () => {
-    router.back();  
-  };
-
+const JobHeader = ({ title, industry, timestamp }: JobHeaderProps) => {
   return (
-    <div>
-      <div className="flex items-center justify-between mb-5">
-        <h1 className="mb-3 text-lg font-bold">{title}</h1>
-        <button className="py-1 px-4 bg-gray-400 hidden sm:block" onClick={handleGoBack}>{goBackText}</button>
+    <div className="flex justify-between items-center">
+      <div className="flex items-center w-full gap-4">
+        <span className="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full text-base border border-[#F0F0F0] flex items-center justify-center text-primary font-bold">
+          {getInitials(title)}
+        </span>
+        <div className="flex flex-col">
+          <h1 className="font-bold text-sm md:text-lg text-[#030712]">{title}</h1>
+          <h2 className="text-sm text-[#030712]">Industry: {industry}</h2>
+        </div>
       </div>
-      <div className="flex flex-col items-start gap-2 w-full">
-        <span className="text-base font-semibold border-b border-b-gray-600 w-full block pb-2">Job Specifications</span>
-        <JobSpec specs={specs} />
-      </div>
+      <span className="text-sm font-normal text-[#6B7280] hidden md:block w-fit text-nowrap">{getDaysDifference(timestamp)} day(s) ago</span>
     </div>
   );
 };

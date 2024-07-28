@@ -53,6 +53,21 @@ export const getFilterInitState = (): Record<string, Array<string | number>> => 
   return filterState;
 };
 
+export const getInitials = (name: string) => {
+  const splittedName = name.replaceAll("/", "").split(" ");
+
+  return `${splittedName[0][0]}${splittedName[1] ? splittedName[1][0] : ""}`;
+};
+
+export const getDaysDifference = (timestamp: number): number => {
+  const today = new Date();
+  const timestampDate = new Date(timestamp * 1000);
+
+  let diffInTime = today.getTime() - timestampDate.getTime();
+
+  return Math.floor(diffInTime / (1000 * 3600 * 24));
+};
+
 export const sortOptions = [
   {
     label: "Oldest",
@@ -62,4 +77,18 @@ export const sortOptions = [
     label: "Newest",
     value: "newest"
   }
+];
+
+export const jobBenefits = [
+  "Early finish on Fridays for our end of week catch up (4:30 finish, and drink of your choice from the bar)",
+  "28 days holiday (including bank holidays) rising by 1 day per year PLUS an additional day off on your birthday",
+  "Generous annual bonus.",
+  "Healthcare package",
+  "Paid community days to volunteer for a charity of your choice",
+  "£100 contribution for your own personal learning and development",
+  "Free Breakfast on Mondays and free snacks in the office",
+  "Access to Perkbox with numerous discounts plus free points from the company to spend as you wish.",
+  "Cycle 2 Work Scheme",
+  "Brand new MacBook Pro",
+  "Joining an agency on the cusp of exponential growth and being part of this exciting story."
 ];

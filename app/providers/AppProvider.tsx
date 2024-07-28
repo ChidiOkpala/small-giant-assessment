@@ -13,7 +13,7 @@ export type SortDateOrder = "oldest" | "newest";
 export type FilterState = {
   search: string;
   filter: Record<string, Array<string | number>>;
-  dateOrder?: SortDateOrder;
+  dateOrder: SortDateOrder | null;
 }
 
 export const AppContext = createContext<AppContextProps | null>(null);
@@ -22,6 +22,7 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
   const [filterState, setFilterState] = useState<FilterState>({
     search: "",
     filter: getFilterInitState(),
+    dateOrder: null
   });
 
   return (
