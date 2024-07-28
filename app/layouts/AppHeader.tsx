@@ -5,13 +5,13 @@ const AppHeader = () => {
     <div className="bg-white w-full py-1 lg:py-4 px-4 lg:px-16 shadow-app-header">
       <div className="max-w-screen-xl mx-auto flex justify-between items-center">
         <div className="flex items-center gap-7">
-          <div className="flex items-center gap-1 lg:gap-2">
+          <Link href="/" className="flex items-center gap-1 lg:gap-2">
             <svg className="scale-75 lg:scale-100" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M19.0029 12.6066V29.4654C19.0029 31.9459 12.1501 38.9669 7.98796 38.9669C4.70869 38.9669 2.06005 37.6215 0 33.8377L6.7267 23.7477L6.97895 23.8738C6.47445 27.4894 6.43241 37.9158 9.37534 37.9158C10.7207 37.9158 10.7627 36.0239 10.7627 29.5495V12.6066L8.61859 10.2523V10H21.1471V10.2523L19.0029 12.6066Z" fill="#4C1D95"/>
               <path d="M29.7538 10H38.4145L48 38.126V38.3783H36.6067V38.126L38.7508 35.9398L36.2283 28.5405H29.3334C29.4175 32.5344 30.4685 35.9819 32.3604 38.126V38.3783H21.5977V38.126L31.5616 15.3393L29.7538 10.2523V10ZM29.3334 27.7837H35.976L32.1502 16.5165H31.898L30.931 19.2492C29.922 22.1501 29.4175 25.093 29.3334 27.7837Z" fill="#4C1D95"/>
             </svg>
             <span className="text-primary text-lg lg:text-3xl font-bold">JOBS</span>
-          </div>
+          </Link>
           <div className="items-center gap-5 hidden lg:flex">
             <Link href="/" className="underline text-[#581C87] text-base font-normal">Find Jobs</Link>
             <span className="text-[#0F0F0F] text-base font-normal">Employer</span>
