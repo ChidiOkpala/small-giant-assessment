@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "docker:bash": "docker-compose -p small_giant run --service-ports app",
     "start": "next start",
     "lint": "next lint"
   },
